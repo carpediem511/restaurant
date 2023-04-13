@@ -1,22 +1,20 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
-	ArrowPathIcon,
+	AtSymbolIcon,
 	Bars3Icon,
-	ChartPieIcon,
-	CursorArrowRaysIcon,
-	FingerPrintIcon,
-	SquaresPlusIcon,
+	BellAlertIcon,
+	ChatBubbleLeftIcon,
+	HeartIcon,
 	XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const products = [
-	{ name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-	{ name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-	{ name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-	{ name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-	{ name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+	{ name: 'Наши ценности', href: '#', icon: HeartIcon },
+	{ name: 'О нас говорят', href: '#', icon: ChatBubbleLeftIcon },
+	{ name: 'Форма обратной связи', href: '#', icon: BellAlertIcon },
+	{ name: 'Контакты', href: '#', icon: AtSymbolIcon },
 ]
 
 
@@ -50,8 +48,8 @@ export default function Header() {
 
 				<Popover.Group className="hidden lg:flex lg:gap-x-12">
 					<Popover className="relative">
-						<Popover.Button className="flex outline-none items-center gap-x-1 text-xl font-semibold leading-6 text-slate-50">
-							Меню
+						<Popover.Button className="flex outline-none items-center gap-x-1 text-xl font-semibold leading-6 text-emerald-300">
+							О нас
 							<ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
 						</Popover.Button>
 
@@ -75,11 +73,10 @@ export default function Header() {
 												<item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
 											</div>
 											<div className="flex-auto">
-												<a href={item.href} className="block font-semibold text-gray-900">
+												<a href={item.href} className="block font-semibold text-gray-900 text-lg">
 													{item.name}
 													<span className="absolute inset-0" />
 												</a>
-												<p className="mt-1 text-gray-600">{item.description}</p>
 											</div>
 										</div>
 									))}
@@ -89,14 +86,14 @@ export default function Header() {
 						</Transition>
 					</Popover>
 
-					<a href="" className="text-xl font-semibold leading-6 text-slate-50">
-						О нас
+					<a href="" className="text-xl font-semibold leading-6 text-emerald-300">
+						Рестораны
 					</a>
-					<a href="" className="text-xl font-semibold leading-6 text-slate-50">
-						Отзывы
+					<a href="" className="text-xl font-semibold leading-6 text-emerald-300">
+						Корзина
 					</a>
-					<a href="" className="text-xl font-semibold leading-6 text-slate-50">
-						Контакты
+					<a href="" className="text-xl font-semibold leading-6 text-emerald-300">
+						На главную
 					</a>
 				</Popover.Group>
 
@@ -166,7 +163,7 @@ export default function Header() {
 									href="#"
 									className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 								>
-									Контакты
+									На главную
 								</a>
 							</div>
 
