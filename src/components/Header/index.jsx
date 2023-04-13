@@ -28,12 +28,12 @@ export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
 	return (
-		<header className="bg-gray-900/10">
+		<header className="brightness-100 fixed w-full backdrop-blur z-10">
 			<nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 				<div className="flex lg:flex-1">
 					<a href="" className="-m-1.5 p-1.5">
 						<span className="sr-only">Ресторан "Островок счастья"</span>
-						<img className="w-20 h-auto" src="./images/icon-logo.png" alt="" />
+						<img className="w-20 h-20" src="/images/icon-logo.png" alt="" />
 					</a>
 				</div>
 				<h2 className='grow text-2xl text-teal-500 font-["Neucha"]'>Островок счастья</h2>
