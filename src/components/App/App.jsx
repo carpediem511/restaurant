@@ -1,7 +1,7 @@
 import Header from 'components/Header';
 import './App.css'
 import Reviews from 'components/Reviews';
-
+import Form from 'components/Form';
 
 function App() {
 	return (
@@ -53,7 +53,13 @@ function App() {
 				</div>
 			</div>
 
-			<Reviews />
+			<div className='content py-20 '>
+				<Reviews />
+
+				<Form />
+			</div>
+
+
 		</>
 	);
 }

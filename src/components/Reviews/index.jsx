@@ -28,38 +28,47 @@ const Reviews = () => {
 
 	return (
 		<>
-			<h2>О нас говорят!</h2>
-
-			<div className="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8">
-				<div>
-					<img
-						src={`./images/${reviews[currentReview]?.avatar}`}
-						className="w-6 h-6 rounded-md mt-5 mx-1.5"
-						alt=""
-					/>
-					<p>{reviews[currentReview]?.date}</p>
-					<h3>{reviews[currentReview]?.name}</h3>
-					<p>{reviews[currentReview]?.text}</p>
-				</div>
-				<div className="flex items-center justify-between text-sm text-gray-600 font-medium">
-					<button
-						className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
-						disabled={currentReview === 0}
-						onClick={handlePrevClick}
-					>
-						Предыдущий
-					</button>
-					<div>
-						Отзыв {currentReview + 1} из {reviews.length}
+			<h2 className='text-center text-5xl text-teal-500 font-["Neucha"]'>
+				О нас говорят!
+			</h2>
+			<div className="flex items-center">
+				<button
+					className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
+					/*не получилось отредактировать, чтобы не прыгали кнопки*/
+					disabled={currentReview === 0}
+					onClick={handlePrevClick}
+				>
+					Предыдущий
+				</button>
+				<div className="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8">
+					<div className="w-3/4 mx-auto border-2 rounded-xl shadow-slate-300/50 shadow-md">
+						<img
+							src={`./images/${reviews[currentReview]?.avatar}`}
+							className="w-48 rounded-2xl mt-8 mx-auto"
+							alt=""
+						/>
+						<p className="text-center mt-5 text-lg">
+							{reviews[currentReview]?.date}
+						</p> {/*не получилось отформатировать дату*/}
+						<h3 className="text-2xl text-end pr-10 text-slate-800 font-medium">
+							{reviews[currentReview]?.name}
+						</h3>
+						<div className="flex mt-4">
+							<img src="./images/quote.png" className="w-12 h-8 pl-4" />
+							<p className="text-xl pb-8 px-6">
+								{reviews[currentReview]?.text}
+							</p>
+						</div>
 					</div>
-					<button
-						className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
-						disabled={currentReview === reviews.length - 1}
-						onClick={handleNextClick}
-					>
-						Следующий
-					</button>
+
 				</div>
+				<button
+					className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
+					disabled={currentReview === reviews.length - 1}
+					onClick={handleNextClick}
+				>
+					Следующий
+				</button>
 			</div>
 		</>
 	)
