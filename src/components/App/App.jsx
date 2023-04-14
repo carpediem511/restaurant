@@ -1,5 +1,6 @@
 import Header from 'components/Header';
 import './App.css'
+import Reviews from 'components/Reviews';
 
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
 					<img src='/images/about-us.jpeg' alt='' className='rounded-2xl' />
 				</div>
 			</div>
+
+			<Reviews />
 		</>
 	);
 }
