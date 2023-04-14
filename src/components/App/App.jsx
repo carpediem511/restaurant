@@ -51,9 +51,12 @@ function App() {
 				<div className='w-1/2 ml-12 my-auto'>
 					<img src='/images/about-us.jpeg' alt='' className='rounded-2xl' />
 				</div>
-			</div>
 
+
+			</div>
+			<div className="border-b border-gray-900/10 pb-12"></div>
 			<div className='content py-20 '>
+
 				<Reviews />
 
 				<Form />
