@@ -2,6 +2,7 @@ import Header from 'components/Header';
 import './App.css'
 import Reviews from 'components/Reviews';
 import Form from 'components/Form';
+import Footer from 'components/Footer';
 
 function App() {
 	return (
@@ -61,7 +62,9 @@ function App() {
 
 				<Form />
 			</div>
+			<div className="border-b border-gray-900/10 pb-12"></div>
 
+			<Footer />
 
 		</>
 	);
