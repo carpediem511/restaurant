@@ -22,7 +22,7 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
 }
 
-export default function Header() {
+export default function NavBar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
 	return (
@@ -48,7 +48,7 @@ export default function Header() {
 
 				<Popover.Group className="hidden lg:flex lg:gap-x-12">
 					<Popover className="relative">
-						<Popover.Button className="flex outline-none items-center gap-x-1 text-xl font-semibold leading-6 text-emerald-300">
+						<Popover.Button className="flex outline-none items-center gap-x-1 text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 							О нас
 							<ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
 						</Popover.Button>
@@ -70,7 +70,7 @@ export default function Header() {
 											className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
 										>
 											<div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-												<item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+												<item.icon className="h-6 w-6 text-gray-600 group-hover:text-teal-600" aria-hidden="true" />
 											</div>
 											<div className="flex-auto">
 												<a href={item.href} className="block font-semibold text-gray-900 text-lg">
@@ -86,13 +86,13 @@ export default function Header() {
 						</Transition>
 					</Popover>
 
-					<a href="" className="text-xl font-semibold leading-6 text-emerald-300">
+					<a href="" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						Рестораны
 					</a>
-					<a href="" className="text-xl font-semibold leading-6 text-emerald-300">
+					<a href="" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						Корзина
 					</a>
-					<a href="" className="text-xl font-semibold leading-6 text-emerald-300">
+					<a href="" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						На главную
 					</a>
 				</Popover.Group>

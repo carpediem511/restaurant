@@ -1,15 +1,16 @@
-import Header from 'components/Header';
+import NavBar from 'components/Navbar';
 import './App.css'
 import Reviews from 'components/Reviews';
 import Form from 'components/Form';
 import Footer from 'components/Footer';
+import ChooseRestaurant from 'components/ChooseRestaurant';
 
 function App() {
 	return (
 		<>
 			<div className='background-main'>
 				<div className='bg-gray-950/50'>
-					<Header />
+					<NavBar />
 
 					<img src='/images/icon-logo2.png' alt='' className='w-1/6 mx-auto pt-48 backdrop-blur-sm rounded-full' />
 
@@ -57,6 +58,8 @@ function App() {
 			</div>
 			<div className="border-b border-gray-900/10 pb-12"></div>
 			<div className='content py-20 '>
+
+				<ChooseRestaurant />
 
 				<Reviews />
 
