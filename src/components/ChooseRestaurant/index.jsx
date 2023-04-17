@@ -28,7 +28,7 @@ const ChooseRestaurant = () => {
 	return (
 
 		<>
-			<section className="mt-2 mx-auto px-4 max-w-screen-xl md:px-8">
+			<section id="chooseRestaurant" className="mt-2 mx-auto px-4 max-w-screen-xl md:px-8">
 				<div className="text-center">
 					<h1 className="text-3xl text-gray-800 font-semibold">
 						Выберите ресторан

@@ -26,7 +26,7 @@ function App() {
 				</div>
 			</div >
 
-			<div className='content flex py-20 '>
+			<div id='values' className='content flex py-20 '>
 				<div className='w-1/2 text-2xl'>
 
 					<p className='pb-2'>

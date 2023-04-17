@@ -11,10 +11,10 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const products = [
-	{ name: 'Наши ценности', href: '#', icon: HeartIcon },
-	{ name: 'О нас говорят', href: '#', icon: ChatBubbleLeftIcon },
-	{ name: 'Форма обратной связи', href: '#', icon: BellAlertIcon },
-	{ name: 'Контакты', href: '#', icon: AtSymbolIcon },
+	{ name: 'Наши ценности', href: '#values', icon: HeartIcon },
+	{ name: 'О нас говорят', href: '#reviews', icon: ChatBubbleLeftIcon },
+	{ name: 'Заказать банкет', href: '#orderBanquet', icon: BellAlertIcon },
+	{ name: 'Контакты', href: '#contacts', icon: AtSymbolIcon },
 ]
 
 
@@ -86,8 +86,8 @@ export default function NavBar() {
 						</Transition>
 					</Popover>
 
-					<a href="" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
-						Рестораны
+					<a href="#chooseRestaurant" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
+						Выбрать ресторан
 					</a>
 					<a href="" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						Корзина

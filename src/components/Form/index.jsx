@@ -5,7 +5,7 @@ const Form = () => {
 	return (
 
 		<>
-			<form className='w-1/2 mx-auto mt-40'>
+			<form id='orderBanquet' className='w-1/2 mx-auto mt-40'>
 				<div className="space-y-12">
 
 

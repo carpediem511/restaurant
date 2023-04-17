@@ -28,7 +28,7 @@ const Reviews = () => {
 
 	return (
 		<>
-			<h2 className='text-center mt-16 text-5xl text-teal-500 font-["Neucha"]'>
+			<h2 id="reviews" className='text-center mt-16 text-5xl text-teal-500 font-["Neucha"]'>
 				О нас говорят!
 			</h2>
 			<div className="flex items-center">
