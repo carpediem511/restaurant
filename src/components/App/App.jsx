@@ -3,7 +3,7 @@ import './App.css'
 import Reviews from 'components/Reviews';
 import Form from 'components/Form';
 import Footer from 'components/Footer';
-import ChooseRestaurant from 'components/ChooseRestaurant';
+import ChooseRestaurant from '../Restaurant/ChooseRestaurant';
 
 function App() {
 	return (
