@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom';
 
 const ChooseRestaurant = () => {
 
@@ -51,11 +52,11 @@ const ChooseRestaurant = () => {
 
 									<p className="text-gray-400 text-sm mt-1">{item.description}</p>
 								</div>
-
-								<button className="px-5 py-3 w-48 mb-6 mx-auto text-white duration-150 bg-teal-600 rounded-2xl hover:bg-teal-500 active:bg-teal-700">
-									Перейти на страницу
-								</button>
-
+								<Link to={`/restaurant/${item.id}`}>
+									<button className="px-5 py-3 w-48 mb-6 mx-auto text-white duration-150 bg-teal-600 rounded-2xl hover:bg-teal-500 active:bg-teal-700">
+										Перейти на страницу
+									</button>
+								</Link>
 
 							</article>
 						))

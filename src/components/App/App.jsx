@@ -6,32 +6,39 @@ import Footer from 'components/Footer';
 import ChooseRestaurant from '../Restaurant/ChooseRestaurant';
 import HeroSection from './HeroSection';
 import AboutCompany from './AboutCompany';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import RestaurantPage from 'components/Restaurant/restaurantPage';
 
 function App() {
 	return (
 		<>
-			<div className='background-main'>
-				<div className='bg-gray-950/50'>
-					<NavBar />
+			<BrowserRouter>
 
-					<HeroSection />
-				</div>
-			</div >
+				<NavBar />
 
-			<AboutCompany />
-			<div className="border-b border-gray-900/10 pb-12"></div>
-			<div className='content py-20 '>
+				<Routes>
+					<Route path='*' element={
+						<>
+							<HeroSection />
 
-				<ChooseRestaurant />
+							<AboutCompany />
 
-				<Reviews />
+							<div className='content py-20 '>
 
-				<Form />
-			</div>
-			<div className="border-b border-gray-900/10 pb-12"></div>
+								<ChooseRestaurant />
 
-			<Footer />
+								<Reviews />
 
+								<Form />
+							</div>
+						</>
+					}
+
+					/>
+					<Route path='/restaurant' element={<RestaurantPage />} />
+				</Routes>
+				<Footer />
+			</BrowserRouter>
 		</>
 	);
 }
