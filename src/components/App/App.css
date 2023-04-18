@@ -3,13 +3,13 @@
 }
 
 .background-main {
-	background: url("/src/background.jpeg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+  background: url("/src/background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .content {
-	width: 1024px;
-	margin: 0 auto;
+  width: 1024px;
+  margin: 0 auto;
 }

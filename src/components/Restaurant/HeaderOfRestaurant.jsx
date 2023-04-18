@@ -1,11 +1,5 @@
 const HeaderOfRestaurant = () => {
+  return <></>;
+};
 
-	return (
-
-		<>
-
-		</>
-	)
-}
-
-export default HeaderOfRestaurant
+export default HeaderOfRestaurant;

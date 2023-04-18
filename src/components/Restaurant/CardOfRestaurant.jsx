@@ -1,11 +1,5 @@
 const CardOfRestaurant = () => {
+  return <></>;
+};
 
-	return (
-
-		<>
-
-		</>
-	)
-}
-
-export default CardOfRestaurant
+export default CardOfRestaurant;
