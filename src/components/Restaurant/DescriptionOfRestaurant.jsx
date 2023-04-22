@@ -4,7 +4,7 @@ import "./styles.css";
 import { AtSymbolIcon } from "@heroicons/react/24/outline";
 import { ClockIcon, MapPinIcon, NoSymbolIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import format from "date-fns/format";
-import ru from "date-fns/locale/ru";
+import enUS from "date-fns/locale/en-US";
 
 const DescriptionOfRestaurant = () => {
 	const { slug } = useParams();
@@ -51,14 +51,20 @@ const DescriptionOfRestaurant = () => {
 									<div className="flex mt-6">
 										<ClockIcon className="h-6 w-6 mr-1 text-teal-600" />
 										<p className="text-xl text-teal-600 font-semibold">
-											Время открытия: <span className="text-gray-600">{format(new Date(restaurant.openAt), "p", { locale: ru })}</span>
+											Время открытия:
+											<span className="text-gray-600 ml-1">
+												{format(new Date(restaurant.openAt), "p", { locale: enUS })}
+											</span>
 										</p>
 									</div>
 
 									<div className="flex mt-6">
 										<NoSymbolIcon className="h-6 w-6 mr-1 text-teal-600" />
-										<p className="text-xl text-teal-600 font-semibold">
-											Время закрытия: <span className="text-gray-600">{restaurant.closeAt}</span>
+										<p className="text-xl mr-1 text-teal-600 font-semibold">
+											Время закрытия:
+											<span className="text-gray-600 ml-1">
+												{format(new Date(restaurant.closeAt), "p", { locale: enUS })}
+											</span>
 										</p>
 									</div>
 
