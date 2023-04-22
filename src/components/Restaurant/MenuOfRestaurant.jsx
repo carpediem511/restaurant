@@ -65,11 +65,11 @@ const MenuOfRestaurant = () => {
 									<div className="flex flex-col justify-between flex-grow p-8 border border-t-0 rounded-b">
 										<div className="grid auto-cols-auto flex-grow">
 											<div className="flex flex-col">
-												<div className="text-lg font-semibold">{dish.name}</div>
+												<div className="text-2xl font-semibold">{dish.name}</div>
 												<div className="text-sm text-gray-900 flex-grow">
 													{dish.description}
 												</div>
-												<div className="mt-1 mb-4 mr-1 text-4xl font-bold sm:text-5xl">
+												<div className="mt-1 mb-4 mr-1 text-lg font-bold sm:text-5xl">
 													{dish.price} Lira
 												</div>
 											</div>
