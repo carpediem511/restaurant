@@ -1,0 +1,10 @@
+.background-main2 {
+  background: url("/src/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  width: 1024px;
+  margin: 0 auto;
+}
