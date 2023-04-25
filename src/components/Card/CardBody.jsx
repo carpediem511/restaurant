@@ -1,5 +1,9 @@
+/*import { useState } from "react"
+
 
 const CardBody = () => {
+
+	const [items, setItems] = useState()
 
 	return (
 
@@ -27,7 +31,7 @@ const CardBody = () => {
 						</thead>
 						<tbody className="text-gray-600 divide-y">
 							{
-								tableItems.map((item, idx) => (
+								items.map((item, idx) => (
 									<tr key={idx}>
 										<td className="flex items-center gap-x-3 py-3 px-6 whitespace-nowrap">
 											<img src={item.avatar} className="w-10 h-10 rounded-full" />
@@ -58,4 +62,4 @@ const CardBody = () => {
 	)
 }
 
-export default CardBody
+export default CardBody*/
