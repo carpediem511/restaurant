@@ -12,6 +12,9 @@ const MenuOfRestaurant = () => {
 	const [dishes, setDishes] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [showComponent, setShowComponent] = useState(false);
+	const [cart, setCart] = useState({});
+	const [selectedDishes, setSelectedDishes] = useState([]);
+
 
 	useEffect(() => {
 		setLoading(true);
@@ -43,6 +46,12 @@ const MenuOfRestaurant = () => {
 			);
 	}, [slug]);
 
+
+	const addToCart = (id) => {
+		if (!selectedDishes.includes(id)) {
+			setSelectedDishes([...selectedDishes, id]);
+		}
+	};
 
 
 
@@ -82,9 +91,22 @@ const MenuOfRestaurant = () => {
 										</div>
 									</div>
 
-									<button onClick={() => setShowComponent(dish.id)} className="w-full justify-center flex mx-auto px-2.5 py-2.5 text-indigo-600 duration-150 bg-indigo-50 rounded-lg hover:bg-indigo-100 active:bg-indigo-200">
-										{showComponent === dish.id ? <Count dishID={dish.id} /> : 'Добавить в корзину'}
-									</button>
+									{selectedDishes.includes(dish.id) && (
+										<Count
+											dishID={dish.id}
+											cart={cart}
+											setCart={setCart}
+											setShowComponent={setShowComponent}
+											selectedDishes={selectedDishes}
+											setSelectedDishes={setSelectedDishes}
+										/>
+									)}
+
+									{!selectedDishes.includes(dish.id) && (
+										<button onClick={() => addToCart(dish.id)} className="border w-full">
+											Добавить в корзину
+										</button>
+									)}
 
 								</div>
 							</div>
