@@ -6,9 +6,12 @@ import RestaurantPage from "components/Restaurant/restaurantPage";
 import HomePage from "components/HomePage";
 import { useState, useEffect } from "react";
 import { FlapperSpinner } from "react-spinners-kit";
+import CartBody from "components/Cart/CartBody";
+
 
 function App() {
 	const [loading, setLoading] = useState(true);
+	const [cartOpen, setCartOpen] = useState(false);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -26,11 +29,13 @@ function App() {
 				</div>
 			) : (
 				<BrowserRouter>
-					<NavBar />
+					<NavBar setCartOpen={setCartOpen} cartOpen={cartOpen} />
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/restaurant/:slug" element={<RestaurantPage />} />
+						<Route path="/cart" element={<CartBody />} />
 					</Routes>
+
 					<Footer />
 				</BrowserRouter>
 			)}

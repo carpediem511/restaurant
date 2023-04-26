@@ -1,9 +1,9 @@
-/*import { useState } from "react"
+import { useState } from "react"
 
 
-const CardBody = () => {
+const CartBody = () => {
 
-	const [items, setItems] = useState()
+	const [items, setItems] = useState([])
 
 	return (
 
@@ -62,4 +62,4 @@ const CardBody = () => {
 	)
 }
 
-export default CardBody*/
+export default CartBody

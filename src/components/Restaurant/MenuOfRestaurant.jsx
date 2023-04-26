@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import { FlapperSpinner } from "react-spinners-kit";
 import Count from "./Count";
 import { PlusIcon } from "@heroicons/react/24/solid";
-import classNames from "classnames";
 
 const MenuOfRestaurant = () => {
 	const { slug } = useParams();
@@ -103,8 +102,9 @@ const MenuOfRestaurant = () => {
 									)}
 
 									{!selectedDishes.includes(dish.id) && (
-										<button onClick={() => addToCart(dish.id)} className="border w-full">
-											Добавить в корзину
+										<button onClick={() => addToCart(dish.id)} className="border flex py-2 rounded-xl justify-center w-full">
+											<PlusIcon className="w-6" />
+											<p>Добавить в корзину</p>
 										</button>
 									)}
 

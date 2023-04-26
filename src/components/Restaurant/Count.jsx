@@ -35,7 +35,7 @@ const Count = ({ dishID, cart, setCart, setShowComponent, selectedDishes, setSel
 
 	return (
 
-		<div className="flex w-full bg-slate-200 py-2">
+		<div className="flex w-full bg-slate-200 py-2 rounded-xl">
 			{addedToCart ? (
 				<>
 					<button onClick={() => decrease()} className="w-1/4">
