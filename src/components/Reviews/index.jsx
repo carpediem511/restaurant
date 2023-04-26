@@ -55,7 +55,7 @@ const Reviews = () => {
               {reviews[currentReview]?.name}
             </h3>
             <div className="flex mt-4">
-              <img src="./images/quote.png" className="w-12 h-8 pl-4" />
+              <img src="./images/quote.png" className="w-12 h-8 pl-4" alt="" />
               <p className="text-xl pb-8 px-6">
                 {reviews[currentReview]?.text}
               </p>
