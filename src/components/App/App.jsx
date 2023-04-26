@@ -33,7 +33,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/restaurant/:slug" element={<RestaurantPage />} />
-						<Route path="/cart" element={<CartBody />} />
+						{cartOpen && <Route path="/cart" element={<CartBody />} />}
 					</Routes>
 
 					<Footer />

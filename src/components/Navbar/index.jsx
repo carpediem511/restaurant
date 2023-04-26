@@ -9,7 +9,6 @@ import {
 	XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import CartBody from "components/Cart/CartBody";
 import { Link } from "react-router-dom";
 
 const products = [
@@ -108,7 +107,7 @@ export default function NavBar() {
 						Выбрать ресторан
 					</a>
 					<Link
-						to="/cart"
+						href="/cart"
 						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
 						onClick={() => setCartOpen(true)}
 					>
