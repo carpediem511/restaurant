@@ -11,7 +11,6 @@ import CartBody from "components/Cart/CartBody";
 
 function App() {
 	const [loading, setLoading] = useState(true);
-	const [cartOpen, setCartOpen] = useState(false);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -25,15 +24,15 @@ function App() {
 		<>
 			{loading ? (
 				<div className="flex justify-center items-center h-screen">
-					<FlapperSpinner size={50} color="#4F46E5" />
+					<FlapperSpinner size={50} color="#00CED1" />
 				</div>
 			) : (
 				<BrowserRouter>
-					<NavBar setCartOpen={setCartOpen} cartOpen={cartOpen} />
+					<NavBar />
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/restaurant/:slug" element={<RestaurantPage />} />
-						{cartOpen && <Route path="/cart" element={<CartBody />} />}
+						<Route path="/cart" element={<CartBody />} />
 					</Routes>
 
 					<Footer />

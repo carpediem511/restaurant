@@ -24,7 +24,6 @@ function classNames(...classes) {
 
 export default function NavBar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const [cartOpen, setCartOpen] = useState(false);
 
 	return (
 		<header className="brightness-100 fixed w-full backdrop-blur z-10">
@@ -107,9 +106,8 @@ export default function NavBar() {
 						Выбрать ресторан
 					</a>
 					<Link
-						href="/cart"
+						to="/cart"
 						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
-						onClick={() => setCartOpen(true)}
 					>
 						Корзина
 					</Link>

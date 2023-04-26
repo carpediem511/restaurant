@@ -1,3 +1,4 @@
+import { TrashIcon } from "@heroicons/react/24/solid"
 import { useState } from "react"
 
 
@@ -8,7 +9,7 @@ const CartBody = () => {
 	return (
 
 		<>
-			<div className="max-w-screen-xl mx-auto px-4 md:px-8">
+			<div className="max-w-screen-xl py-48 mx-auto px-4 md:px-8">
 				<div className="items-start justify-between md:flex">
 					<div className="max-w-lg">
 						<h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
@@ -25,6 +26,8 @@ const CartBody = () => {
 								<th className="py-3 px-6">Наименование блюда</th>
 								<th className="py-3 px-6">Количество</th>
 								<th className="py-3 px-6">Цена за блюдо</th>
+								<th className="py-3 px-6">  </th>
+
 
 
 							</tr>
