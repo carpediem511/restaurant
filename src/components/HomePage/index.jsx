@@ -1,25 +1,25 @@
 import HeroSection from "./HeroSection";
 import AboutCompany from "./AboutCompany";
-import ChooseRestaurant from "components/Restaurant/ChooseRestaurant";
-import Reviews from "components/Reviews";
-import Form from "components/Form";
+import ChooseRestaurant from "./ChooseRestaurant";
+import Reviews from "./Reviews";
+import Form from "./Form";
 
 const HomePage = () => {
-  return (
-    <>
-      <HeroSection />
+	return (
+		<>
+			<HeroSection />
 
-      <AboutCompany />
+			<AboutCompany />
 
-      <div className="content py-20 ">
-        <ChooseRestaurant />
+			<div className="content py-20 ">
+				<ChooseRestaurant />
 
-        <Reviews />
+				<Reviews />
 
-        <Form />
-      </div>
-    </>
-  );
+				<Form />
+			</div>
+		</>
+	);
 };
 
 export default HomePage;
