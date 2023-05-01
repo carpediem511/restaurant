@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import TemplateOfDish from "./TemplateOfDish";
+import MakeOrder from "./MakeOrder";
 
 const CartBody = () => {
   /*	получение текущих блюд из localStorage или пустого массива, если данных в localStorage нет*/
@@ -82,6 +83,8 @@ const CartBody = () => {
             </tr>
           </table>
         </div>
+
+        <MakeOrder />
       </div>
     </>
   );
