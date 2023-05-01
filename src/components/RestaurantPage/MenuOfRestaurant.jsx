@@ -11,7 +11,7 @@ const MenuOfRestaurant = () => {
   const [dishes, setDishes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showComponent, setShowComponent] = useState(false);
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   const [selectedDishes, setSelectedDishes] = useState([]);
 
   useEffect(() => {
@@ -38,6 +38,7 @@ const MenuOfRestaurant = () => {
         (result) => {
           setDishes(result);
           setLoading(false);
+          localStorage.setItem("dishes", JSON.stringify(result));
         },
         (error) => {
           console.log(error);
@@ -46,15 +47,35 @@ const MenuOfRestaurant = () => {
       );
   }, [slug]);
 
-  const addToCart = (id) => {
-    if (!selectedDishes.includes(id)) {
-      setSelectedDishes([...selectedDishes, id]);
+  // Создаем функцию, которая добавляет товар в корзину
+  const addToCart = (dishInCart) => {
+    // Проверяем есть ли уже товары в корзине
+    if (cart.length > 0) {
+      // Проверяем, добавляется ли товар из одного ресторана
+      if (cart[0].restaurant !== dishInCart.restaurant) {
+        // Если товар добавляется из другого ресторана, предлагаем очистить корзину
+        const clearCart = window.confirm(
+          "Вы пытаетесь добавить товар из другого ресторана! Текущие блюда в корзине будут удалены! Хотите продолжить?"
+        );
+        if (clearCart) {
+          // Если пользователь согласился очистить корзину, то очищаем ее
+          setCart([dishInCart]);
+          localStorage.setItem("cart", JSON.stringify([dishInCart]));
+        }
+      } else {
+        // Если товар добавляется из того же ресторана, то добавляем его в корзину
+        setCart((prevCart) => [...prevCart, dishInCart]);
+        localStorage.setItem("cart", JSON.stringify([...cart, dishInCart]));
+      }
+    } else {
+      // Если в корзине нет товаров, то добавляем новый товар
+      setCart([dishInCart]);
+      localStorage.setItem("cart", JSON.stringify([dishInCart]));
     }
   };
 
   return (
     <>
-      {" "}
       {/*ПОЧЕМУ-ТО СТРАНИЦА ПОКАЗЫВАЕТСЯ С КОНЦА*/}
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"></div>

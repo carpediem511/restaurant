@@ -5,21 +5,21 @@ import Reviews from "./Reviews";
 import Form from "./Form";
 
 const HomePage = () => {
-	return (
-		<>
-			<HeroSection />
+  return (
+    <>
+      <HeroSection />
 
-			<AboutCompany />
+      <AboutCompany />
 
-			<div className="content py-20 ">
-				<ChooseRestaurant />
+      <div className="content py-20 ">
+        <ChooseRestaurant />
 
-				<Reviews />
+        <Reviews />
 
-				<Form />
-			</div>
-		</>
-	);
+        <Form />
+      </div>
+    </>
+  );
 };
 
 export default HomePage;

@@ -9,36 +9,36 @@ import { FlapperSpinner } from "react-spinners-kit";
 import CartBody from "components/CartPage";
 
 function App() {
-	const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		}, 2000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
 
-		return () => clearTimeout(timer);
-	}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-	return (
-		<>
-			{loading ? (
-				<div className="flex justify-center items-center h-screen">
-					<FlapperSpinner size={50} color="#00CED1" />
-				</div>
-			) : (
-				<BrowserRouter>
-					<NavBar />
-					<Routes>
-						<Route path="/" element={<HomePage />} />
-						<Route path="/restaurant/:slug" element={<RestaurantPage />} />
-						<Route path="/cart" element={<CartBody />} />
-					</Routes>
+  return (
+    <>
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <FlapperSpinner size={50} color="#00CED1" />
+        </div>
+      ) : (
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/restaurant/:slug" element={<RestaurantPage />} />
+            <Route path="/cart" element={<CartBody />} />
+          </Routes>
 
-					<Footer />
-				</BrowserRouter>
-			)}
-		</>
-	);
+          <Footer />
+        </BrowserRouter>
+      )}
+    </>
+  );
 }
 
 export default App;
