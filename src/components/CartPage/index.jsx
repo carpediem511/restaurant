@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import TemplateOfDish from "./TemplateOfDish";
-import MakeOrder from "./MakeOrder";
+import { Link } from "react-router-dom";
 
 const CartBody = () => {
   /*	получение текущих блюд из localStorage или пустого массива, если данных в localStorage нет*/
@@ -84,7 +84,12 @@ const CartBody = () => {
           </table>
         </div>
 
-        <MakeOrder />
+        <Link
+          to="/order"
+          className="mt-6 bg-red-600 text-white p-2 rounded-lg hover:bg-red-800"
+        >
+          Подтвердить
+        </Link>
       </div>
     </>
   );

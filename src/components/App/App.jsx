@@ -7,6 +7,8 @@ import HomePage from "components/HomePage";
 import { useState, useEffect } from "react";
 import { FlapperSpinner } from "react-spinners-kit";
 import CartBody from "components/CartPage";
+import Successful from "components/CartPage/Successful";
+import OrderForm from "components/CartPage/OrderForm";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,6 +34,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/restaurant/:slug" element={<RestaurantPage />} />
             <Route path="/cart" element={<CartBody />} />
+            <Route path="/order/completed" element={<Successful />} />
+            <Route exact path="/order" element={<OrderForm />} />
           </Routes>
 
           <Footer />

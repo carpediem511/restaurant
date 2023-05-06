@@ -14,24 +14,24 @@ const Count = ({
 
   const increase = () => {
     setCounter(counter + 1);
-    setAddedToCart(true);
-    setCart({ ...cart, [dishID]: counter + 1 });
+    setAddedToCart(true); //добавлено в корзину
+    setCart({ ...cart, [dishID]: counter + 1 }); //в корзине +1
   };
 
   const decrease = () => {
     if (counter > 1) {
       setCounter(counter - 1);
-      setCart({ ...cart, [dishID]: counter - 1 });
+      setCart({ ...cart, [dishID]: counter - 1 }); //обновляю корзину, удаляю блюдо
     } else {
-      setAddedToCart(false);
-      setCart({ ...cart, [dishID]: 0 });
-      setShowComponent(false);
+      setAddedToCart(false); //блюдо не добавлено
+      setCart({ ...cart, [dishID]: 0 }); //обновление корзины
+      setShowComponent(false); //закрываю счетчик
       setSelectedDishes(selectedDishes.filter((item) => item !== dishID));
     }
   };
 
   const closeComponent = () => {
-    if (counter > 0) {
+    if (counter <= 0) {
       setCounter(0);
       setAddedToCart(false);
       setCart({ ...cart, [dishID]: 0 });
@@ -55,7 +55,7 @@ const Count = ({
           </button>
         </>
       ) : (
-        <button onClick={() => increase()} className="w-full">
+        <button onClick={() => setShowComponent(true)} className="w-full">
           Добавить в корзину
         </button>
       )}

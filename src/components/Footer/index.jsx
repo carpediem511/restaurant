@@ -23,9 +23,9 @@ const Footer = () => {
               <img src="/images/icon-logo.png" className="w-26" alt="" />
               <p className="max-w-md">ООО "Милаш"</p>
               <ul className="flex flex-wrap items-center gap-4 text-sm sm:text-base">
-                {footerNavs.map((item, idx) => (
+                {footerNavs.map((item, id) => (
                   <div className="text-gray-800 hover:text-gray-500 duration-150">
-                    <a key={idx} href={item.href}>
+                    <a key={item.id} href={item.href}>
                       {item.name}
                     </a>
                   </div>
