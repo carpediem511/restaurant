@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import TemplateOfDish from "./TemplateOfDish";
-import { Link } from "react-router-dom";
 import OrderForm from "./OrderForm";
-import SendOrder from "./SendOrder";
 
 const CartBody = () => {
 	/*	получение текущих блюд из localStorage или пустого массива, если данных в localStorage нет*/
@@ -130,13 +128,10 @@ const CartBody = () => {
 
 
 
-				<Link
-					to="/order"
-					element={<SendOrder />}
-					className="mt-6 bg-red-600 text-white p-2 rounded-lg hover:bg-red-800"
-				>
+				<button className="mt-6 bg-red-600 text-white p-2 rounded-lg hover:bg-red-800">
 					Оформить заказ
-				</Link>
+				</button>
+
 			</div>
 		</>
 	);
