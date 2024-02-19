@@ -15,7 +15,7 @@ function App() {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setLoading(false);
-		}, 2000);
+		}, 1000);
 
 		return () => clearTimeout(timer);
 	}, []);
@@ -33,7 +33,6 @@ function App() {
 						<Route path="/" element={<HomePage />} />
 						<Route path="/restaurant/:slug" element={<RestaurantPage />} />
 						<Route path="/cart" element={<CartBody />} />
-						<Route path="/cart/order" element={<SendOrder />} />
 					</Routes>
 
 					<Footer />

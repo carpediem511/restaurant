@@ -17,7 +17,6 @@ const OrderForm = ({ customerName, phone, email, restaurantId, setCustomerName, 
 							className="block text-xl font-medium leading-6 mb-10 text-teal-700"
 							id="restaurantId"
 							value={restaurantId.name}
-							onChange={(e) => setRestaurantId(e.target.value)}
 						>
 							Заказ из ресторана
 						</button>

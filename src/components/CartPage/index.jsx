@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TemplateOfDish from "./TemplateOfDish";
 import OrderForm from "./OrderForm";
+import SendOrder from "./SendOrder";
 
 const CartBody = () => {
 	/*	получение текущих блюд из localStorage или пустого массива, если данных в localStorage нет*/
@@ -70,6 +71,7 @@ const CartBody = () => {
 			});
 	};
 
+
 	return (
 		<>
 			<div className="max-w-screen-xl py-48 mx-auto px-4 md:px-8">
@@ -88,7 +90,7 @@ const CartBody = () => {
 								<th className="py-3 px-6 ">Наименование блюда</th>
 								<th className="py-3 px-6">Количество</th>
 								<th className="py-3 px-6">Цена за блюдо</th>
-								<th className="py-3 px-6">Итого за блюдо</th>
+								<th className="py-3 px-6">Итоговая стоимость</th>
 								<th className="py-3 px-6"> </th>
 							</tr>
 						</thead>
@@ -128,9 +130,11 @@ const CartBody = () => {
 
 
 
-				<button className="mt-6 bg-red-600 text-white p-2 rounded-lg hover:bg-red-800">
+				<button onClick={handleSubmit} className="mt-6 bg-red-600 text-white p-2 rounded-lg hover:bg-red-800">
 					Оформить заказ
 				</button>
+
+				<SendOrder requestStatus={requestStatus} />
 
 			</div>
 		</>

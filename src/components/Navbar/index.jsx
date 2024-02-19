@@ -19,7 +19,7 @@ const products = [
 ];
 
 function classNames(...classes) {
-	return classes.filter(Boolean).join(" ");
+	return classes.join(" ");
 }
 
 export default function NavBar() {
@@ -46,7 +46,7 @@ export default function NavBar() {
 						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
 						onClick={() => setMobileMenuOpen(true)}
 					>
-						<span className="sr-only">Open main menu</span>
+						<span className="sr-only">Открыть главное меню</span>
 						<Bars3Icon className="h-6 w-6" aria-hidden="true" />
 					</button>
 				</div>
@@ -99,11 +99,11 @@ export default function NavBar() {
 						</Transition>
 					</Popover>
 
-					<Link to="#chooseRestaurant"
+					<a href="#chooseRestaurant"
 						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
 					>
 						Выбрать ресторан
-					</Link>
+					</a>
 					<Link
 						to="/cart"
 						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
@@ -112,7 +112,7 @@ export default function NavBar() {
 					</Link>
 
 					<Link
-						href="/"
+						to="/"
 						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
 					>
 						На главную
@@ -129,7 +129,7 @@ export default function NavBar() {
 				<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 					<div className="flex items-center justify-between">
 						<a className="-m-1.5 p-1.5">
-							<span className="sr-only">Your Company</span>
+							<span className="sr-only">"Островок счастья"</span>
 							<img
 								className="h-8 w-auto"
 								src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
