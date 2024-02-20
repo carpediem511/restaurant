@@ -18,47 +18,35 @@ const products = [
 	{ name: "Контакты", href: "#contacts", icon: AtSymbolIcon },
 ];
 
-function classNames(...classes) {
-	return classes.join(" ");
-}
-
 export default function NavBar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
 		<header className="brightness-100 fixed w-full backdrop-blur z-10">
-			<nav
-				className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-				aria-label="Global"
-			>
-				<div className="flex lg:flex-1">
+			<nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 sm:flex-col sm:p-t-6" aria-label="Global">
+				<div className="flex lg:flex-1 sm:mx-auto">
 					<a className="-m-1.5 p-1.5">
-						<span className="sr-only">Ресторан "Островок счастья"</span>
+						<span className="sr-only">Платформа "Островок счастья"</span>
 						<img className="w-20 h-20" src="/images/icon-logo.png" alt="" />
 					</a>
 				</div>
-				<h2 className='grow text-2xl text-teal-500 font-["Neucha"]'>
-					Островок счастья
-				</h2>
+				<h2 className="grow text-2xl mb-6 text-teal-500 font-['Neucha'] hidden lg:block">Островок счастья</h2>
 				<div className="flex lg:hidden">
 					<button
 						type="button"
 						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
 						onClick={() => setMobileMenuOpen(true)}
 					>
-						<span className="sr-only">Открыть главное меню</span>
-						<Bars3Icon className="h-6 w-6" aria-hidden="true" />
+						<Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
 					</button>
+
 				</div>
 
 				<Popover.Group className="hidden lg:flex lg:gap-x-12">
 					<Popover className="relative">
 						<Popover.Button className="flex outline-none items-center gap-x-1 text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 							О нас
-							<ChevronDownIcon
-								className="h-5 w-5 flex-none text-gray-400"
-								aria-hidden="true"
-							/>
+							<ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
 						</Popover.Button>
 
 						<Transition
@@ -78,16 +66,10 @@ export default function NavBar() {
 											className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
 										>
 											<div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-												<item.icon
-													className="h-6 w-6 text-gray-600 group-hover:text-teal-600"
-													aria-hidden="true"
-												/>
+												<item.icon className="h-6 w-6 text-gray-600 group-hover:text-teal-600" aria-hidden="true" />
 											</div>
 											<div className="flex-auto">
-												<a
-													href={item.href}
-													className="block font-semibold text-gray-900 text-lg"
-												>
+												<a href={item.href} className="block font-semibold text-gray-900 text-lg">
 													{item.name}
 													<span className="absolute inset-0" />
 												</a>
@@ -99,42 +81,25 @@ export default function NavBar() {
 						</Transition>
 					</Popover>
 
-					<a href="#chooseRestaurant"
-						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
-					>
+					<a href="#chooseRestaurant" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						Выбрать ресторан
 					</a>
-					<Link
-						to="/cart"
-						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
-					>
+					<Link to="/cart" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						Корзина
 					</Link>
 
-					<Link
-						to="/"
-						className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600"
-					>
+					<Link to="/" className="text-xl font-semibold leading-6 text-teal-500 hover:text-teal-600">
 						На главную
 					</Link>
 				</Popover.Group>
 			</nav>
-			<Dialog
-				as="div"
-				className="lg:hidden"
-				open={mobileMenuOpen}
-				onClose={setMobileMenuOpen}
-			>
+			<Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
 				<div className="fixed inset-0 z-10" />
-				<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+				<Dialog.Panel className="fixed top-0 inset-x-0 z-10 bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 opacity-80">
 					<div className="flex items-center justify-between">
 						<a className="-m-1.5 p-1.5">
 							<span className="sr-only">"Островок счастья"</span>
-							<img
-								className="h-8 w-auto"
-								src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-								alt=""
-							/>
+
 						</a>
 						<button
 							type="button"
@@ -148,57 +113,34 @@ export default function NavBar() {
 					<div className="mt-6 flow-root">
 						<div className="-my-6 divide-y divide-gray-500/10">
 							<div className="space-y-2 py-6">
-								<Disclosure as="div" className="-mx-3">
-									{({ open }) => (
-										<>
-											<Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">
-												Меню
-												<ChevronDownIcon
-													className={classNames(
-														open ? "rotate-180" : "",
-														"h-5 w-5 flex-none"
-													)}
-													aria-hidden="true"
-												/>
-											</Disclosure.Button>
-											<Disclosure.Panel className="mt-2 space-y-2">
-												{[...products].map((item) => (
-													<Disclosure.Button
-														key={item.name}
-														as="a"
-														href={item.href}
-														className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-													>
-														{item.name}
-													</Disclosure.Button>
-												))}
-											</Disclosure.Panel>
-										</>
-									)}
-								</Disclosure>
-								<a
-									href="#values"
-									className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>
-									О нас
-								</a>
-								<a
-									href="#reviews"
-									className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>
-									Отзывы
-								</a>
 								<a
 									href="/"
 									className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 								>
 									На главную
 								</a>
+								<a
+									href="#chooseRestaurant"
+									className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+								>
+									Выбрать ресторан
+								</a>
+
+								<a
+									href="/cart"
+									className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+								>
+									Корзина
+								</a>
+
+
 							</div>
 						</div>
 					</div>
 				</Dialog.Panel>
+
+
 			</Dialog>
 		</header>
 	);
-}
+};

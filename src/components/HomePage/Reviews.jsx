@@ -29,14 +29,11 @@ const Reviews = () => {
 
 	return (
 		<>
-			<h2
-				id="reviews"
-				className='text-center mt-16 text-5xl text-teal-500 font-["Neucha"]'
-			>
+			<h2 id="reviews" className='text-center mt-16 text-5xl text-teal-500 font-["Neucha"]'>
 				О нас говорят!
 			</h2>
 			<div className="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8 relative">
-				<div className="w-1/2 mx-auto border-2 rounded-xl shadow-slate-300/50 shadow-md">
+				<div className="w-full md:w-1/2 mx-auto border-2 rounded-xl shadow-slate-300/50 shadow-md">
 					<img
 						src={reviews[currentReview]?.avatar ? `./images/${reviews[currentReview].avatar}` : ""}
 						className="w-48 rounded-2xl mt-8 mx-auto"
@@ -47,7 +44,7 @@ const Reviews = () => {
 						{new Date(reviews[currentReview]?.date).toLocaleDateString()}
 					</p>
 
-					<h3 className="text-2xl text-end pr-10 text-slate-800 font-medium">
+					<h3 className="text-2xl text-center mt-2 text-slate-800 font-medium">
 						{reviews[currentReview]?.name}
 					</h3>
 					<div className="flex mt-4">
@@ -57,7 +54,7 @@ const Reviews = () => {
 						</p>
 					</div>
 				</div>
-				<div className="absolute top-0 left-0 w-full flex justify-between mt-4">
+				<div className="md:absolute top-0 left-0 w-full flex justify-between mt-4 md:mt-12 px-4">
 					<button
 						className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
 						disabled={reviews.length <= 1}
