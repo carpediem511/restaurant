@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { FlapperSpinner } from "react-spinners-kit";
 import Count from "./Count";
 import { PlusIcon } from "@heroicons/react/24/solid";
+import { Dialog } from '@headlessui/react';
 
 const MenuOfRestaurant = () => {
 	const { slug } = useParams();
@@ -13,6 +14,8 @@ const MenuOfRestaurant = () => {
 	const [showComponent, setShowComponent] = useState(false);
 	const [cart, setCart] = useState([]);
 	const [selectedDishes, setSelectedDishes] = useState([]);
+	const [showConfirmation, setShowConfirmation] = useState(false);
+	const [newCartItem, setNewCartItem] = useState(null);
 
 	useEffect(() => {
 		setLoading(true);
@@ -47,13 +50,10 @@ const MenuOfRestaurant = () => {
 	}, [slug]);
 
 	useEffect(() => {
+		localStorage.setItem("cart", JSON.stringify(cart));
+	}, [cart]);
 
-		localStorage.setItem("cart", JSON.stringify(cart)); //при изменении корзины вызывается эффект
-	}, [cart])
-
-	// Создаем функцию, которая добавляет товар в корзину
 	const addToCart = (id, name, image, description, price) => {
-
 		const newItem = {
 			id: id,
 			quantity: 1,
@@ -61,30 +61,64 @@ const MenuOfRestaurant = () => {
 			image: image,
 			description: description,
 			price: price,
+			restaurant: restaurant.name, // Добавляем имя ресторана
 		};
-		// Проверяем есть ли уже товары в корзине и добавляется ли товар из одного ресторана
-		if (cart.length > 0 && cart[0].restaurant !== newItem.restaurant) {
 
-			// Если товар добавляется из другого ресторана, предлагаем очистить корзину
-			const clearCart = window.confirm(
-				"Вы пытаетесь добавить товар из другого ресторана! Текущие блюда в корзине будут удалены! Хотите продолжить?"
-			);
-			if (clearCart) {
-				// Если пользователь согласился очистить корзину, то очищаем ее
-				setCart([newItem]);
-
-			}
+		const cartRestaurantNames = cart.map((item) => item.restaurant);
+		if (cartRestaurantNames.includes(newItem.restaurant)) {
+			setCart([newItem]);
 		} else {
-			// Если товар добавляется из того же ресторана, то добавляем его в корзину
-			setCart((prevCart) => [...prevCart, newItem])
-
+			setShowConfirmation(true);
+			setNewCartItem(newItem);
 		}
-	}
+	};
 
+	const confirmAddToCart = () => {
+		setShowConfirmation(false);
+		setCart([newCartItem]);
+	};
+
+	const cancelAddToCart = () => {
+		setShowConfirmation(false);
+	};
 
 	return (
 		<>
-			{/*ПОЧЕМУ-ТО СТРАНИЦА ПОКАЗЫВАЕТСЯ С КОНЦА*/}
+			<Dialog open={showConfirmation} onClose={cancelAddToCart}>
+				<Dialog.Panel className="w-full fixed inset-0 h-max m-auto max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+					<Dialog.Title
+						as="h3"
+						className="text-2xl font-medium leading-6 text-red-900"
+					>
+						Подтвердите действие
+					</Dialog.Title>
+					<div className="mt-2">
+						<p className="text-lg text-red-500">
+							Вы пытаетесь добавить товар из другого ресторана! Текущие блюда в корзине будут удалены! Хотите продолжить?
+						</p>
+					</div>
+
+
+					<div className="bg-white rounded-lg overflow-hidden max-w-md p-6">
+						<div className="mt-4 flex justify-center">
+							<button
+								onClick={confirmAddToCart}
+								className="inline-flex justify-center rounded-md border border-transparent bg-teal-100 px-4 py-2 text-lg font-medium text-teal-900 hover:bg-teal-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+							>
+								Да
+							</button>
+							<button
+								onClick={cancelAddToCart}
+								className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-lg font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ml-4"
+							>
+								Нет
+							</button>
+						</div>
+					</div>
+
+				</Dialog.Panel>
+			</Dialog>
+
 			<div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
 				<div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"></div>
 				{loading ? (
@@ -92,7 +126,7 @@ const MenuOfRestaurant = () => {
 						<FlapperSpinner size={50} color="#4F46E5" />
 					</div>
 				) : (
-					<div className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
+					<div className="grid max-w-md mx-auto gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 md:grid-cols-2 md:max-w-2xl xl:max-w-screen-lg sm:mx-auto">
 						{dishes.map((dish) => (
 							<div
 								key={dish.id}
@@ -118,7 +152,7 @@ const MenuOfRestaurant = () => {
 										</div>
 									</div>
 
-									{cart.map(c => c.id).includes(dish.id) && (
+									{cart.map((c) => c.id).includes(dish.id) && (
 										<Count
 											dishID={dish.id}
 											cart={cart}
@@ -129,9 +163,17 @@ const MenuOfRestaurant = () => {
 										/>
 									)}
 
-									{!cart.map(c => c.id).includes(dish.id) && (
+									{!cart.map((c) => c.id).includes(dish.id) && (
 										<button
-											onClick={() => addToCart(dish.id, dish.name, dish.image, dish.description, dish.price)}
+											onClick={() =>
+												addToCart(
+													dish.id,
+													dish.name,
+													dish.image,
+													dish.description,
+													dish.price
+												)
+											}
 											className="border flex py-2 rounded-xl justify-center w-full"
 										>
 											<PlusIcon className="w-6" />

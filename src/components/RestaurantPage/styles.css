@@ -4,7 +4,16 @@
   background-size: cover;
 }
 
-.content {
-  width: 1024px;
-  margin: 0 auto;
+
+@media (max-width: 640px) {
+  .my-72 {
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+  }
+}
+
+@media (max-width: 300px) {
+  .background-main2 {
+    background-size: contain !important;
+  }
 }
