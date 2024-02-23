@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 
 const ErrorModal = ({ isOpen, errorMessage, onClose }) => (
 	<>
-		<Transition appear show={isOpen} as={Fragment}>
+		<Transition appear show={true} as={Fragment}>
 			<Dialog as="div" className="relative z-10" onClose={onClose}>
 				<Transition.Child
 					as={Fragment}
@@ -37,7 +37,8 @@ const ErrorModal = ({ isOpen, errorMessage, onClose }) => (
 								</Dialog.Title>
 								<div className="mt-2">
 									<p className="text-lg text-red-500">
-										Пожалуйста, попробуйте ещё раз!
+										Пожалуйста, проверьте - корректно ли заполнены поля формы.
+
 									</p>
 								</div>
 

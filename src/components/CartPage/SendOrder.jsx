@@ -1,10 +1,9 @@
 import { useState } from "react";
-import AlertError from "./AlertError";
+import AlertError from "./OrderError";
+import OrderError from "./OrderError";
+import ErrorModal from "components/HomePage/ErrorModal";
 
-const SendOrder = ({ requestStatus, customerName, restaurantId }) => {
-	const [cartItems, setCartItems] = useState([]);
-
-
+const SendOrder = ({ requestStatus, customerName, restaurantId, cartItems, handleSubmit }) => {
 
 	return (
 		<>
@@ -23,9 +22,16 @@ const SendOrder = ({ requestStatus, customerName, restaurantId }) => {
 							</div>
 						))}
 					</ul>
+					<button
+						type="button"
+						onClick={handleSubmit}
+						className="inline-flex justify-center rounded-md border border-transparent bg-teal-100 px-4 py-2 text-sm font-medium text-teal-900 hover:bg-teal-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+					>
+						Отправить
+					</button>
 				</>
 			)}
-			{requestStatus === "error" && <AlertError />}
+			{requestStatus === "error" && <ErrorModal message="Ошибка при отправке заказа. Пожалуйста, попробуйте еще раз." />}
 		</>
 	);
 };

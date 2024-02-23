@@ -66,7 +66,7 @@ const MenuOfRestaurant = () => {
 
 		const cartRestaurantNames = cart.map((item) => item.restaurant);
 		if (cartRestaurantNames.includes(newItem.restaurant)) {
-			setCart([newItem]);
+			setCart([...cart, newItem]);
 		} else {
 			setShowConfirmation(true);
 			setNewCartItem(newItem);

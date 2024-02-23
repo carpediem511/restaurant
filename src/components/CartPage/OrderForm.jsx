@@ -1,29 +1,44 @@
+import ErrorModal from "components/HomePage/ErrorModal";
 import { useState } from "react";
 
-const OrderForm = ({ customerName, phone, email, restaurantId, setCustomerName, setEmail, setPhone, setRestaurantId }) => {
+const OrderForm = ({ customerName, phone, email, restaurantName, onSubmit }) => {
 
+	const [error, setError] = useState(null)
+	const [customerName, setCustomerName] = useState("");
+	const [phone, setPhone] = useState("");
+	const [email, setEmail] = useState("");
+	const [restaurantId, setRestaurantId] = useState("");
+	const [requestStatus, setRequestStatus] = useState("");
+
+	const handleSubmit = async (event) => {
+		event.preventDefault()
+		if (!customerName || !phone || !email || !restaurantId) {
+			setError("Пожалуйста, заполните все поля формы")
+			return
+		}
+		onSubmit(event)
+	}
 
 	return (
 		<>
-			<form className="w-1/4 pt-10"
+			<form className="mt-8"
 			>
 				<h2 className="text-center text-xl mb-6 text-teal-500">
 					Введите ваши данные для оформления заказа:
 				</h2>
 
 				<div className="mb-10">
-					<div className="col-span-full">
-						<button
+					<div className="sm:col-span-3">
+						<label
 							className="block text-xl font-medium leading-6 mb-10 text-teal-700"
-							id="restaurantId"
-							value={restaurantId.name}
+							htmlFor="restaurant"
 						>
-							Заказ из ресторана
-						</button>
+							Заказ из ресторана "{restaurantName}"
+						</label>
 					</div>
 					<div className="sm:col-span-3">
 						<label
-							for="name"
+							htmlFor="name"
 							className="block text-base font-medium leading-6 text-gray-900"
 						>
 							Фамилия и имя
@@ -61,7 +76,7 @@ const OrderForm = ({ customerName, phone, email, restaurantId, setCustomerName, 
 
 					<div className="sm:col-span-4">
 						<label
-							for="phone"
+							htmlFor="phone"
 							className="block text-base font-medium leading-6 text-gray-900"
 						>
 							Номер телефона
@@ -79,8 +94,22 @@ const OrderForm = ({ customerName, phone, email, restaurantId, setCustomerName, 
 						</div>
 					</div>
 				</div>
-
+				<div className="mt-4">
+					<button
+						type="submit"
+						onClick={handleSubmit}
+						className="inline-flex justify-center rounded-md border border-transparent bg-teal-100 px-4 py-2 text-sm font-medium text-teal-900 hover:bg-teal-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+					>
+						Сделать заказ
+					</button>
+				</div>
 			</form>
+
+			{error && <ErrorModal message={error} onClose={() => setError(null)} />}
+
+			{requestStatus === "success" && (
+				<ErrorModal message="Ваш заказ успешно отправлен!" onClose={() => setRequestStatus("")} />
+			)}
 		</>
 	);
 };
